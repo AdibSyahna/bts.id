@@ -37,21 +37,14 @@ export interface CreateUserInput {
 }
 
 export interface IssuedTokens {
-  token: string;
-  tokenType: "Bearer";
-  expiresIn: number;
-  /** Opaque to the client: a signed JWT bound to the current password hash. */
-  refreshToken: string;
-  refreshExpiresIn: number | null;
-  refreshTokenExpiresAt: string | null;
+  authentication_token: string;
+  refresh_token: string;
 }
 
 /**
  * Response body of login, refresh and password change.
  */
-export interface AuthResult extends IssuedTokens {
-  user: User;
-}
+export interface AuthResult extends IssuedTokens {}
 
 export function toUser(row: UserPublicRow): User {
   return {

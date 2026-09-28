@@ -177,6 +177,11 @@ productsRouter.post(
       input.category = category;
     }
 
+    if (typeof body.images === "string") {
+      // wrap in array
+      body.images = [body.images];
+    }
+
     const images = readOptionalStringArray(body, "images");
     if (images !== undefined) {
       input.images = images;

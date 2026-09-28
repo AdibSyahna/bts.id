@@ -51,13 +51,8 @@ function buildAuthResult(user: User, currentPasswordHash: string): AuthResult {
   const refresh = signRefreshToken(toAuthUser(user), currentPasswordHash);
 
   return {
-    user,
-    token: access.token,
-    tokenType: "Bearer",
-    expiresIn: access.expiresIn,
-    refreshToken: refresh.token,
-    refreshExpiresIn: refresh.expiresIn,
-    refreshTokenExpiresAt: refresh.expiresAt,
+    authentication_token: access.token,
+    refresh_token: refresh.token,
   };
 }
 
