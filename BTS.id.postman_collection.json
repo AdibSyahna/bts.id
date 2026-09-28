@@ -1,0 +1,859 @@
+{
+  "info": {
+    "_postman_id": "212cbdd2-43bb-48c1-972c-2992ab56ed4c",
+    "name": "BTS.id",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "32892693"
+  },
+  "item": [
+    {
+      "name": "products",
+      "item": [
+        {
+          "name": "List semua produk",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:3000/api/products",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "api",
+                "products"
+              ],
+              "query": [
+                {
+                  "key": "search",
+                  "value": "T-Shirt",
+                  "disabled": true
+                },
+                {
+                  "key": "category",
+                  "value": "Clothes",
+                  "disabled": true
+                },
+                {
+                  "key": "limit",
+                  "value": "1",
+                  "disabled": true
+                },
+                {
+                  "key": "page",
+                  "value": "2",
+                  "disabled": true
+                }
+              ]
+            },
+            "description": "# List semua produk\n\nMelihat semua produk yang telah didaftar sebelumnya.\n\nJuga berfungsi sebagai endpoint pencarian menggunakan query parameter yang tersedia.\n\n**Query Parameters:**\n\n| Parameter | Type | Description |\n| --- | --- | --- |\n| `page` | number | Nomor paginasi (default: `1`) |\n| `limit` | number | Jumlah item per page (default: `10`) |\n| `search` | string | Kata kunci pencarian berdasarkan title produk. |\n| `category` | string | Kata kunci pencarian berdasarkan kategori produk. |\n\n**Response fields:**\n\n- `data` — Array berisi objek produk, masing-masing memiliki:\n    \n    - `id` — Identifikasi unik produk\n        \n    - `title` — Nama produk\n        \n    - `price` — Harga produk\n        \n    - `description` — Deskripsi singkat produk\n        \n    - `category` — Kategori produk\n        \n    - `images` — Array berisi URL gambar produk\n        \n    - `createdAt` / `updatedAt` — Waktu pembuatan dan pembaruan terakhir\n        \n    - `createdBy` / `updatedBy` — Username pengguna yang melakukan aksi\n        \n    - `createdById` / `updatedById` — ID pengguna yang melakukan aksi\n        \n- `meta` — Metadata paginasi:\n    \n    - `count` — Jumlah item yang dikembalikan di halaman ini\n        \n    - `total` — Total seluruh item yang sesuai dengan query\n        \n    - `limit` — Jumlah maksimal item per halaman\n        \n    - `page` — Nomor halaman saat ini\n        \n    - `offset` — Jumlah item yang dilewati\n        \n    - `totalPages` — Total jumlah halaman\n        \n    - `hasNextPage` — Apakah halaman berikutnya tersedia\n        \n    - `hasPreviousPage` — Apakah halaman sebelumnya tersedia\n        \n    - `sort` — Field yang digunakan untuk pengurutan\n        \n    - `order` — Arah pengurutan (`asc` atau `desc`)"
+          },
+          "response": [
+            {
+              "name": "200 OK",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "http://localhost:3000/api/products",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "3000",
+                  "path": [
+                    "api",
+                    "products"
+                  ],
+                  "query": [
+                    {
+                      "key": "search",
+                      "value": "T-Shirt",
+                      "disabled": true
+                    },
+                    {
+                      "key": "category",
+                      "value": "Clothes",
+                      "disabled": true
+                    },
+                    {
+                      "key": "limit",
+                      "value": "1",
+                      "disabled": true
+                    },
+                    {
+                      "key": "page",
+                      "value": "1",
+                      "disabled": true
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "456"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"1c8-xV1kYAeOvE9GyLCE/o29dm9SkDs\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Mon, 28 Sep 2026 05:31:34 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"data\": [\n        {\n            \"id\": 1,\n            \"title\": \"Awesome T-Shirt\",\n            \"price\": 99.99,\n            \"description\": \"High-quality cotton t-shirt\",\n            \"category\": \"Clothes\",\n            \"images\": [\n                \"https://placeimg.com/640/480/any\"\n            ],\n            \"createdAt\": \"2026-09-28 05:31:30\",\n            \"createdBy\": \"admin\",\n            \"createdById\": 1,\n            \"updatedAt\": \"2026-09-28 05:31:30\",\n            \"updatedBy\": \"admin\",\n            \"updatedById\": 1\n        }\n    ],\n    \"meta\": {\n        \"count\": 1,\n        \"total\": 1,\n        \"limit\": 50,\n        \"page\": 1,\n        \"offset\": 0,\n        \"totalPages\": 1,\n        \"hasNextPage\": false,\n        \"hasPreviousPage\": false,\n        \"sort\": \"id\",\n        \"order\": \"desc\"\n    }\n}"
+            }
+          ]
+        },
+        {
+          "name": "Mendaftar produk baru",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{Authentication Token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "key": "title",
+                  "value": "Awesome T-Shirt",
+                  "type": "text",
+                  "uuid": "b1bf7372-ee5d-4bc5-b372-84e5700fdccb"
+                },
+                {
+                  "key": "price",
+                  "value": "99.99",
+                  "type": "text",
+                  "uuid": "bbb027a0-ae13-4490-85ac-98f20179e6c9"
+                },
+                {
+                  "key": "description",
+                  "value": "High-quality cotton t-shirt",
+                  "type": "text",
+                  "uuid": "56b40867-3ac8-4624-92bf-046d77edac9f"
+                },
+                {
+                  "key": "category",
+                  "value": "Clothes",
+                  "type": "text",
+                  "uuid": "c35521e0-8969-49ff-869b-8fd796ac307e"
+                },
+                {
+                  "key": "images",
+                  "value": "https://placeimg.com/640/480/any",
+                  "type": "text",
+                  "uuid": "4d64c0e8-6be5-43dc-860d-984c5378f80e"
+                },
+                {
+                  "key": "images",
+                  "value": "",
+                  "type": "text",
+                  "uuid": "e593cce5-b3fc-48f7-aa59-ace320932b2b",
+                  "disabled": true
+                }
+              ]
+            },
+            "url": {
+              "raw": "http://localhost:3000/api/products",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "api",
+                "products"
+              ]
+            },
+            "description": "## Mendaftar Produk Baru\n\nDaftar 1 produk baru.\n\n---\n\n### Request Body\n\n**Content-Type:** `application/x-www-form-urlencoded`\n\n| Field | Type | Required | Description |\n| --- | --- | --- | --- |\n| `username` | string | ✅ | Username akun baru |\n| `password` | string | ✅ | Password akun |\n| `password_confirmation` | string | ✅ | Konfirmasi password. Harus sama dengan field `password` |\n\n---\n\n## Request Body\n\nContent-Type: `application/x-www-form-urlencoded`\n\n| Field | Type | Required | Description | Example |\n| --- | --- | --- | --- | --- |\n| `title` | string | ✅ Required | Nama / judul produk | `Awesome T-Shirt 2` |\n| `price` | number | ✅ Required | Harga produk | `99.99` |\n| `description` | string | Optional | Deskripsi produk | `High-quality cotton t-shirt` |\n| `category` | string | Optional | Kategori produk | `Clothes` |\n| `images` | string (URL) | Optional | URL gambar produk (dapat lebih dari satu) | `https://placeimg.com/640/480/any` |\n\n---\n\n## Response\n\n### ✅ 201 Created\n\nProduk berhasil dibuat. Response body berisi data produk yang baru saja dibuat.\n\n``` json\n{\n  \"data\": {\n    \"id\": 3,\n    \"title\": \"Awesome T-Shirt 2\",\n    \"price\": 99.99,\n    \"description\": \"High-quality cotton t-shirt\",\n    \"category\": \"Clothes\",\n    \"images\": [\n      \"https://placeimg.com/640/480/any\"\n    ],\n    \"createdAt\": \"2026-09-28 05:42:10\",\n    \"createdBy\": \"admin\",\n    \"createdById\": 1,\n    \"updatedAt\": \"2026-09-28 05:42:10\",\n    \"updatedBy\": \"admin\",\n    \"updatedById\": 1\n  }\n}\n\n ```\n\n### Response Fields\n\n| Field | Type | Description |\n| --- | --- | --- |\n| `id` | number | ID unik produk yang baru dibuat |\n| `title` | string | Nama produk |\n| `price` | number | Harga produk |\n| `description` | string | Deskripsi produk |\n| `category` | string | Kategori produk |\n| `images` | array | Daftar URL gambar produk |\n| `createdAt` | string | Waktu produk dibuat |\n| `createdBy` | string | Nama pengguna yang membuat produk |\n| `createdById` | number | ID pengguna yang membuat produk |\n| `updatedAt` | string | Waktu produk terakhir diperbarui |\n| `updatedBy` | string | Nama pengguna yang terakhir memperbarui produk |\n| `updatedById` | number | ID pengguna yang terakhir memperbarui produk |"
+          },
+          "response": [
+            {
+              "name": "201 Created",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "key": "title",
+                      "value": "Awesome T-Shirt",
+                      "type": "text",
+                      "uuid": "b1bf7372-ee5d-4bc5-b372-84e5700fdccb"
+                    },
+                    {
+                      "key": "price",
+                      "value": "99.99",
+                      "type": "text",
+                      "uuid": "bbb027a0-ae13-4490-85ac-98f20179e6c9"
+                    },
+                    {
+                      "key": "description",
+                      "value": "High-quality cotton t-shirt",
+                      "type": "text",
+                      "uuid": "56b40867-3ac8-4624-92bf-046d77edac9f"
+                    },
+                    {
+                      "key": "category",
+                      "value": "Clothes",
+                      "type": "text",
+                      "uuid": "c35521e0-8969-49ff-869b-8fd796ac307e"
+                    },
+                    {
+                      "key": "images",
+                      "value": "https://placeimg.com/640/480/any",
+                      "type": "text",
+                      "uuid": "4d64c0e8-6be5-43dc-860d-984c5378f80e"
+                    },
+                    {
+                      "key": "images",
+                      "value": "",
+                      "type": "text",
+                      "uuid": "e593cce5-b3fc-48f7-aa59-ace320932b2b",
+                      "disabled": true
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "http://localhost:3000/api/products",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "3000",
+                  "path": [
+                    "api",
+                    "products"
+                  ]
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "308"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"134-G2W2W780kYWXNdaf15wtRDGi6vQ\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Mon, 28 Sep 2026 05:31:30 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"data\": {\n        \"id\": 1,\n        \"title\": \"Awesome T-Shirt\",\n        \"price\": 99.99,\n        \"description\": \"High-quality cotton t-shirt\",\n        \"category\": \"Clothes\",\n        \"images\": [\n            \"https://placeimg.com/640/480/any\"\n        ],\n        \"createdAt\": \"2026-09-28 05:31:30\",\n        \"createdBy\": \"admin\",\n        \"createdById\": 1,\n        \"updatedAt\": \"2026-09-28 05:31:30\",\n        \"updatedBy\": \"admin\",\n        \"updatedById\": 1\n    }\n}"
+            }
+          ]
+        },
+        {
+          "name": "Lihat detail produk",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:3000/api/products/:id",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "api",
+                "products",
+                ":id"
+              ],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": "1"
+                }
+              ]
+            },
+            "description": "## Lihat Detail Produk\n\nMengambil detail dari satu produk berdasarkan ID uniknya.\n\n### HTTP Method & URL\n\n```\nGET http://localhost:3000/api/products/:id\n\n ```\n\n### Path Variables\n\n| Variabel | Tipe | Deskripsi |\n| --- | --- | --- |\n| `id` | integer | Pengenal unik produk yang ingin diambil |\n\n### Response\n\n**200 OK**\n\nMengembalikan objek `data` yang berisi detail produk.\n\n``` json\n{\n  \"data\": {\n    \"id\": 1,\n    \"title\": \"Awesome T-Shirt\",\n    \"price\": 99.99,\n    \"description\": \"High-quality cotton t-shirt\",\n    \"category\": \"Clothes\",\n    \"images\": [\"https://placeimg.com/640/480/any\"],\n    \"createdAt\": \"2026-09-28 05:31:30\",\n    \"createdBy\": \"admin\",\n    \"createdById\": 1,\n    \"updatedAt\": \"2026-09-28 05:31:30\",\n    \"updatedBy\": \"admin\",\n    \"updatedById\": 1\n  }\n}\n\n ```\n\n### Field Response\n\n| Field | Tipe | Deskripsi |\n| --- | --- | --- |\n| `id` | integer | Pengenal unik produk |\n| `title` | string | Nama produk |\n| `price` | number | Harga produk |\n| `description` | string | Deskripsi singkat produk |\n| `category` | string | Kategori produk |\n| `images` | array | Daftar URL gambar produk |\n| `createdAt` | string | Waktu produk dibuat |\n| `createdBy` | string | Nama pengguna yang membuat produk |\n| `createdById` | integer | ID pengguna yang membuat produk |\n| `updatedAt` | string | Waktu pembaruan terakhir |\n| `updatedBy` | string | Nama pengguna yang terakhir memperbarui produk |\n| `updatedById` | integer | ID pengguna yang terakhir memperbarui produk |"
+          },
+          "response": [
+            {
+              "name": "200 OK",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "http://localhost:3000/api/products/:id",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "3000",
+                  "path": [
+                    "api",
+                    "products",
+                    ":id"
+                  ],
+                  "variable": [
+                    {
+                      "key": "id",
+                      "value": "1"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "308"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"134-G2W2W780kYWXNdaf15wtRDGi6vQ\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Mon, 28 Sep 2026 05:31:53 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"data\": {\n        \"id\": 1,\n        \"title\": \"Awesome T-Shirt\",\n        \"price\": 99.99,\n        \"description\": \"High-quality cotton t-shirt\",\n        \"category\": \"Clothes\",\n        \"images\": [\n            \"https://placeimg.com/640/480/any\"\n        ],\n        \"createdAt\": \"2026-09-28 05:31:30\",\n        \"createdBy\": \"admin\",\n        \"createdById\": 1,\n        \"updatedAt\": \"2026-09-28 05:31:30\",\n        \"updatedBy\": \"admin\",\n        \"updatedById\": 1\n    }\n}"
+            }
+          ]
+        },
+        {
+          "name": "Update produk",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{Authentication Token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "key": "description",
+                  "value": "Super Awesome T-Shirt",
+                  "type": "text",
+                  "uuid": "4f7c70e2-d8c8-4d0e-b4d9-2d316a4a4d38"
+                }
+              ]
+            },
+            "url": {
+              "raw": "http://localhost:3000/api/products/:id",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "api",
+                "products",
+                ":id"
+              ],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": "1"
+                }
+              ]
+            },
+            "description": "## Update Produk\n\nMemperbarui data produk yang sudah ada berdasarkan ID produk.\n\n### Endpoint\n\n`PUT /api/products/:id`\n\n### Path Variables\n\n| Parameter | Type | Required | Description |\n| --- | --- | --- | --- |\n| `id` | number | Yes | ID produk |\n\n### Request Body\n\nContent-Type: `application/x-www-form-urlencoded`\n\n| Field | Type | Required | Description |\n| --- | --- | --- | --- |\n| `description` | string | No | Deskripsi baru untuk produk |\n\n### Response\n\n**200 OK** — Produk berhasil diperbarui.\n\n``` json\n{\n  \"data\": {\n    \"id\": 1,\n    \"title\": \"Awesome T-Shirt\",\n    \"price\": 99.99,\n    \"description\": \"Super Awesome T-Shirt\",\n    \"category\": \"Clothes\",\n    \"images\": [\"https://placeimg.com/640/480/any\"],\n    \"createdAt\": \"2026-09-28 05:31:30\",\n    \"createdBy\": \"admin\",\n    \"createdById\": 1,\n    \"updatedAt\": \"2026-09-28 05:38:35\",\n    \"updatedBy\": \"admin\",\n    \"updatedById\": 1\n  }\n}\n\n ```"
+          },
+          "response": [
+            {
+              "name": "200 OK",
+              "originalRequest": {
+                "method": "PUT",
+                "header": [],
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "key": "description",
+                      "value": "Super Awesome T-Shirt",
+                      "type": "text",
+                      "uuid": "4f7c70e2-d8c8-4d0e-b4d9-2d316a4a4d38"
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "http://localhost:3000/api/products/:id",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "3000",
+                  "path": [
+                    "api",
+                    "products",
+                    ":id"
+                  ],
+                  "variable": [
+                    {
+                      "key": "id",
+                      "value": "1"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "302"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"12e-ssqPRQjPmFyE4uKpOCfAWogSYtw\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Mon, 28 Sep 2026 05:38:35 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"data\": {\n        \"id\": 1,\n        \"title\": \"Awesome T-Shirt\",\n        \"price\": 99.99,\n        \"description\": \"Super Awesome T-Shirt\",\n        \"category\": \"Clothes\",\n        \"images\": [\n            \"https://placeimg.com/640/480/any\"\n        ],\n        \"createdAt\": \"2026-09-28 05:31:30\",\n        \"createdBy\": \"admin\",\n        \"createdById\": 1,\n        \"updatedAt\": \"2026-09-28 05:38:35\",\n        \"updatedBy\": \"admin\",\n        \"updatedById\": 1\n    }\n}"
+            }
+          ]
+        },
+        {
+          "name": "Hapus Produk",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{Authentication Token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:3000/api/products/:id",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "api",
+                "products",
+                ":id"
+              ],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": "1"
+                }
+              ]
+            },
+            "description": "# Hapus Produk\n\nMenghapus produk berdasarkan ID yang diberikan.\n\n**Path Variable:**\n\n- `id` (required): ID unik dari produk yang ingin dihapus.\n    \n\n**Autentikasi:**  \nEndpoint ini memerlukan autentikasi. Sertakan token autentikasi pada header request:\n\n```\nAuthorization: Bearer {{Authentication Token}}\n\n ```\n\n**Response:**\n\n- `204 No Content` — Produk berhasil dihapus. Tidak ada konten yang dikembalikan.\n    \n- `404 Not Found` — Produk dengan ID yang diberikan tidak ditemukan.\n    \n- `401 Unauthorized` — Token autentikasi tidak valid atau tidak disertakan."
+          },
+          "response": [
+            {
+              "name": "204 No Content",
+              "originalRequest": {
+                "method": "DELETE",
+                "header": [],
+                "url": {
+                  "raw": "http://localhost:3000/api/products/:id",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "3000",
+                  "path": [
+                    "api",
+                    "products",
+                    ":id"
+                  ],
+                  "variable": [
+                    {
+                      "key": "id",
+                      "value": "1"
+                    }
+                  ]
+                }
+              },
+              "status": "No Content",
+              "code": 204,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "ETag",
+                  "value": "W/\"19-n5oYK1810PAFL6cw4OdviLpf8w0\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Mon, 28 Sep 2026 05:42:17 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "auth",
+      "item": [
+        {
+          "name": "Registrasi akun baru",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "key": "username",
+                  "value": "admin",
+                  "type": "text",
+                  "uuid": "a316a4da-5e65-4bcb-bdbf-af59f3b4b19f"
+                },
+                {
+                  "key": "password",
+                  "value": "password123",
+                  "type": "text",
+                  "uuid": "36d9a355-1e09-4a10-a7e6-d7d44ab996ab"
+                },
+                {
+                  "key": "password_confirmation",
+                  "value": "password123",
+                  "type": "text",
+                  "uuid": "b3d32356-a7b0-49a7-b18a-919da0b8e7fb"
+                }
+              ]
+            },
+            "url": {
+              "raw": "http://localhost:3000/api/auth/register",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "api",
+                "auth",
+                "register"
+              ]
+            },
+            "description": "## Registrasi Akun Baru\n\nBuat akun baru yang dapat digunakan untuk login.\n\n---\n\n### Endpoint\n\n**Method:** `POST`  \n**URL:** `http://localhost:3000/api/auth/register`\n\n---\n\n### Request Body\n\n**Content-Type:** `application/x-www-form-urlencoded`\n\n| Field | Type | Required | Description |\n| --- | --- | --- | --- |\n| `username` | string | ✅ | Username akun baru |\n| `password` | string | ✅ | Password akun |\n| `password_confirmation` | string | ✅ | Konfirmasi password. Harus sama dengan field `password` |\n\n---\n\n### Success Response\n\n**Status Code:** `201 Created`\n\n``` json\n{\n  \"data\": {\n    \"id\": 2,\n    \"username\": \"admin\",\n    \"createdAt\": \"2026-09-28 05:01:15\",\n    \"updatedAt\": \"2026-09-28 05:01:15\"\n  }\n}\n\n ```\n\n| Field | Type | Description |\n| --- | --- | --- |\n| `data.id` | integer | ID A |\n| `data.username` | string | Username akun yang terdaftar |\n| `data.createdAt` | string | Waktu pembuatan akun |\n| `data.updatedAt` | string | Waktu perubahan terakhir akun, sama dengan waktu pembuatan akun untuk registrasi. |"
+          },
+          "response": [
+            {
+              "name": "201 Created",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "key": "username",
+                      "value": "admin",
+                      "type": "text",
+                      "uuid": "a316a4da-5e65-4bcb-bdbf-af59f3b4b19f"
+                    },
+                    {
+                      "key": "password",
+                      "value": "password123",
+                      "type": "text",
+                      "uuid": "36d9a355-1e09-4a10-a7e6-d7d44ab996ab"
+                    },
+                    {
+                      "key": "password_confirmation",
+                      "value": "password123",
+                      "type": "text",
+                      "uuid": "b3d32356-a7b0-49a7-b18a-919da0b8e7fb"
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "http://localhost:3000/api/auth/register",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "3000",
+                  "path": [
+                    "api",
+                    "auth",
+                    "register"
+                  ]
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "104"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"68-JgS9re/AcZV5NGAtH0inu6RStTU\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Mon, 28 Sep 2026 05:31:15 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"data\": {\n        \"id\": 1,\n        \"username\": \"admin\",\n        \"createdAt\": \"2026-09-28 05:31:15\",\n        \"updatedAt\": \"2026-09-28 05:31:15\"\n    }\n}"
+            }
+          ]
+        },
+        {
+          "name": "Login dan mendapat token",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "key": "username",
+                  "value": "admin",
+                  "type": "text",
+                  "uuid": "a316a4da-5e65-4bcb-bdbf-af59f3b4b19f"
+                },
+                {
+                  "key": "password",
+                  "value": "password123",
+                  "type": "text",
+                  "uuid": "36d9a355-1e09-4a10-a7e6-d7d44ab996ab"
+                }
+              ]
+            },
+            "url": {
+              "raw": "http://localhost:3000/api/auth/login",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "api",
+                "auth",
+                "login"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "200 OK",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "key": "username",
+                      "value": "admin",
+                      "type": "text",
+                      "uuid": "a316a4da-5e65-4bcb-bdbf-af59f3b4b19f"
+                    },
+                    {
+                      "key": "password",
+                      "value": "password123",
+                      "type": "text",
+                      "uuid": "36d9a355-1e09-4a10-a7e6-d7d44ab996ab"
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "http://localhost:3000/api/auth/login",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "3000",
+                  "path": [
+                    "api",
+                    "auth",
+                    "login"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "559"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"22f-PjwECNnxwRMeqMZmLkhlBzYpUZo\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Mon, 28 Sep 2026 05:36:53 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"data\": {\n        \"authentication_token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluIiwidHlwIjoiYWNjZXNzIiwiaWF0IjoxNzkwNTczODEzLCJleHAiOjE3OTA1Nzc0MTMsImlzcyI6ImJ0cy5pZCIsInN1YiI6IjEifQ.HN6swJpiXJhpPWMB5LCTruCMh9x4QKKRmrhoU7C153c\",\n        \"refresh_token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0eXAiOiJyZWZyZXNoIiwicHdkIjoidDFydFRULWFuRVFCRE9TalJjTjJHVGk4RHk1X0VNbUIiLCJqdGkiOiI4ZTk3ZDJkYi05NWRkLTQyYTItOWJiMC0wNzI5ZDgzZDMxYTciLCJpYXQiOjE3OTA1NzM4MTMsImV4cCI6MTc5MzE2NTgxMywiaXNzIjoiYnRzLmlkIiwic3ViIjoiMSJ9.Rt9Yl_Do1VEJihQ7GNbZy4GY7BdBauHEdnMUYlecn60\"\n    }\n}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "/api",
+      "request": {
+        "method": "GET",
+        "header": []
+      },
+      "response": []
+    }
+  ],
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "type": "text/javascript",
+        "packages": {},
+        "requests": {},
+        "exec": [
+          ""
+        ]
+      }
+    },
+    {
+      "listen": "test",
+      "script": {
+        "type": "text/javascript",
+        "packages": {},
+        "requests": {},
+        "exec": [
+          ""
+        ]
+      }
+    }
+  ],
+  "variable": [
+    {
+      "key": "Authentication Token",
+      "value": ""
+    }
+  ]
+}
