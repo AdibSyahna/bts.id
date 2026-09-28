@@ -72,6 +72,10 @@ authRouter.post(
       throw HttpError.conflict(`Username "${username}" is already taken`, { field: "username" });
     }
 
+    if (body.password != body.password_confirmation) {
+      throw HttpError.badRequest("Password confirmation does not match", { field: "password_confirmation" });
+    }
+
     const passwordHash = await hashPassword(password);
     const user = await userRepository.create({ username, passwordHash });
 

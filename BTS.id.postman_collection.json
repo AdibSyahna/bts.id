@@ -43,7 +43,7 @@
                 },
                 {
                   "key": "page",
-                  "value": "2",
+                  "value": "1",
                   "disabled": true
                 }
               ]
@@ -129,14 +129,7 @@
           "name": "Mendaftar produk baru",
           "request": {
             "auth": {
-              "type": "bearer",
-              "bearer": [
-                {
-                  "key": "token",
-                  "value": "{{Authentication Token}}",
-                  "type": "string"
-                }
-              ]
+              "type": "noauth"
             },
             "method": "POST",
             "header": [],
@@ -288,6 +281,98 @@
               ],
               "cookie": [],
               "body": "{\n    \"data\": {\n        \"id\": 1,\n        \"title\": \"Awesome T-Shirt\",\n        \"price\": 99.99,\n        \"description\": \"High-quality cotton t-shirt\",\n        \"category\": \"Clothes\",\n        \"images\": [\n            \"https://placeimg.com/640/480/any\"\n        ],\n        \"createdAt\": \"2026-09-28 05:31:30\",\n        \"createdBy\": \"admin\",\n        \"createdById\": 1,\n        \"updatedAt\": \"2026-09-28 05:31:30\",\n        \"updatedBy\": \"admin\",\n        \"updatedById\": 1\n    }\n}"
+            },
+            {
+              "name": "401 Unauthorized",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "key": "title",
+                      "value": "Awesome T-Shirt",
+                      "type": "text",
+                      "uuid": "b1bf7372-ee5d-4bc5-b372-84e5700fdccb"
+                    },
+                    {
+                      "key": "price",
+                      "value": "99.99",
+                      "type": "text",
+                      "uuid": "bbb027a0-ae13-4490-85ac-98f20179e6c9"
+                    },
+                    {
+                      "key": "description",
+                      "value": "High-quality cotton t-shirt",
+                      "type": "text",
+                      "uuid": "56b40867-3ac8-4624-92bf-046d77edac9f"
+                    },
+                    {
+                      "key": "category",
+                      "value": "Clothes",
+                      "type": "text",
+                      "uuid": "c35521e0-8969-49ff-869b-8fd796ac307e"
+                    },
+                    {
+                      "key": "images",
+                      "value": "https://placeimg.com/640/480/any",
+                      "type": "text",
+                      "uuid": "4d64c0e8-6be5-43dc-860d-984c5378f80e"
+                    },
+                    {
+                      "key": "images",
+                      "value": "",
+                      "type": "text",
+                      "uuid": "e593cce5-b3fc-48f7-aa59-ace320932b2b",
+                      "disabled": true
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "http://localhost:3000/api/products",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "3000",
+                  "path": [
+                    "api",
+                    "products"
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "79"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"4f-faowekI0uGQdsNjFB9IKPOUug7Q\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Mon, 28 Sep 2026 05:54:06 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"error\": {\n        \"message\": \"Missing Authorization header: expected 'Bearer <token>'\"\n    }\n}"
             }
           ]
         },
@@ -311,7 +396,7 @@
               "variable": [
                 {
                   "key": "id",
-                  "value": "1"
+                  "value": "10"
                 }
               ]
             },
@@ -374,6 +459,63 @@
               ],
               "cookie": [],
               "body": "{\n    \"data\": {\n        \"id\": 1,\n        \"title\": \"Awesome T-Shirt\",\n        \"price\": 99.99,\n        \"description\": \"High-quality cotton t-shirt\",\n        \"category\": \"Clothes\",\n        \"images\": [\n            \"https://placeimg.com/640/480/any\"\n        ],\n        \"createdAt\": \"2026-09-28 05:31:30\",\n        \"createdBy\": \"admin\",\n        \"createdById\": 1,\n        \"updatedAt\": \"2026-09-28 05:31:30\",\n        \"updatedBy\": \"admin\",\n        \"updatedById\": 1\n    }\n}"
+            },
+            {
+              "name": "404 Not Found",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "http://localhost:3000/api/products/:id",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "3000",
+                  "path": [
+                    "api",
+                    "products",
+                    ":id"
+                  ],
+                  "variable": [
+                    {
+                      "key": "id",
+                      "value": "10"
+                    }
+                  ]
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "48"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"30-78iuE6hPepgpumqwSxTWxZMgygA\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Mon, 28 Sep 2026 05:53:52 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"error\": {\n        \"message\": \"Product 10 was not found\"\n    }\n}"
             }
           ]
         },
@@ -492,6 +634,142 @@
               ],
               "cookie": [],
               "body": "{\n    \"data\": {\n        \"id\": 1,\n        \"title\": \"Awesome T-Shirt\",\n        \"price\": 99.99,\n        \"description\": \"Super Awesome T-Shirt\",\n        \"category\": \"Clothes\",\n        \"images\": [\n            \"https://placeimg.com/640/480/any\"\n        ],\n        \"createdAt\": \"2026-09-28 05:31:30\",\n        \"createdBy\": \"admin\",\n        \"createdById\": 1,\n        \"updatedAt\": \"2026-09-28 05:38:35\",\n        \"updatedBy\": \"admin\",\n        \"updatedById\": 1\n    }\n}"
+            },
+            {
+              "name": "401 Unauthorized",
+              "originalRequest": {
+                "method": "PUT",
+                "header": [],
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "key": "description",
+                      "value": "Super Awesome T-Shirt",
+                      "type": "text",
+                      "uuid": "4f7c70e2-d8c8-4d0e-b4d9-2d316a4a4d38"
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "http://localhost:3000/api/products/:id",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "3000",
+                  "path": [
+                    "api",
+                    "products",
+                    ":id"
+                  ],
+                  "variable": [
+                    {
+                      "key": "id",
+                      "value": "1"
+                    }
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "79"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"4f-faowekI0uGQdsNjFB9IKPOUug7Q\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Mon, 28 Sep 2026 05:53:18 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"error\": {\n        \"message\": \"Missing Authorization header: expected 'Bearer <token>'\"\n    }\n}"
+            },
+            {
+              "name": "404 Not Found",
+              "originalRequest": {
+                "method": "PUT",
+                "header": [],
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "key": "description",
+                      "value": "Super Awesome T-Shirt",
+                      "type": "text",
+                      "uuid": "4f7c70e2-d8c8-4d0e-b4d9-2d316a4a4d38"
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "http://localhost:3000/api/products/:id",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "3000",
+                  "path": [
+                    "api",
+                    "products",
+                    ":id"
+                  ],
+                  "variable": [
+                    {
+                      "key": "id",
+                      "value": "10"
+                    }
+                  ]
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "48"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"30-78iuE6hPepgpumqwSxTWxZMgygA\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Mon, 28 Sep 2026 05:53:36 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"error\": {\n        \"message\": \"Product 10 was not found\"\n    }\n}"
             }
           ]
         },
@@ -580,6 +858,120 @@
               ],
               "cookie": [],
               "body": null
+            },
+            {
+              "name": "401 Unauthorized",
+              "originalRequest": {
+                "method": "DELETE",
+                "header": [],
+                "url": {
+                  "raw": "http://localhost:3000/api/products/:id",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "3000",
+                  "path": [
+                    "api",
+                    "products",
+                    ":id"
+                  ],
+                  "variable": [
+                    {
+                      "key": "id",
+                      "value": "1"
+                    }
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "79"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"4f-faowekI0uGQdsNjFB9IKPOUug7Q\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Mon, 28 Sep 2026 05:52:27 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"error\": {\n        \"message\": \"Missing Authorization header: expected 'Bearer <token>'\"\n    }\n}"
+            },
+            {
+              "name": "404 Not Found",
+              "originalRequest": {
+                "method": "DELETE",
+                "header": [],
+                "url": {
+                  "raw": "http://localhost:3000/api/products/:id",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "3000",
+                  "path": [
+                    "api",
+                    "products",
+                    ":id"
+                  ],
+                  "variable": [
+                    {
+                      "key": "id",
+                      "value": "10"
+                    }
+                  ]
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "48"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"30-78iuE6hPepgpumqwSxTWxZMgygA\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Mon, 28 Sep 2026 05:52:57 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"error\": {\n        \"message\": \"Product 10 was not found\"\n    }\n}"
             }
           ]
         }
@@ -705,6 +1097,154 @@
               ],
               "cookie": [],
               "body": "{\n    \"data\": {\n        \"id\": 1,\n        \"username\": \"admin\",\n        \"createdAt\": \"2026-09-28 05:31:15\",\n        \"updatedAt\": \"2026-09-28 05:31:15\"\n    }\n}"
+            },
+            {
+              "name": "400 Bad Request",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "key": "username",
+                      "value": "admin2",
+                      "type": "text",
+                      "uuid": "a316a4da-5e65-4bcb-bdbf-af59f3b4b19f"
+                    },
+                    {
+                      "key": "password",
+                      "value": "password123",
+                      "type": "text",
+                      "uuid": "36d9a355-1e09-4a10-a7e6-d7d44ab996ab"
+                    },
+                    {
+                      "key": "password_confirmation",
+                      "value": "password1234",
+                      "type": "text",
+                      "uuid": "b3d32356-a7b0-49a7-b18a-919da0b8e7fb"
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "http://localhost:3000/api/auth/register",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "3000",
+                  "path": [
+                    "api",
+                    "auth",
+                    "register"
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "104"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"68-g0ub1hh6IVygXe5MfmlHZ8w70Qg\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Mon, 28 Sep 2026 05:56:11 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"error\": {\n        \"message\": \"Password confirmation does not match\",\n        \"details\": {\n            \"field\": \"password_confirmation\"\n        }\n    }\n}"
+            },
+            {
+              "name": "409 Conflict",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "key": "username",
+                      "value": "admin",
+                      "type": "text",
+                      "uuid": "a316a4da-5e65-4bcb-bdbf-af59f3b4b19f"
+                    },
+                    {
+                      "key": "password",
+                      "value": "password123",
+                      "type": "text",
+                      "uuid": "36d9a355-1e09-4a10-a7e6-d7d44ab996ab"
+                    },
+                    {
+                      "key": "password_confirmation",
+                      "value": "password123",
+                      "type": "text",
+                      "uuid": "b3d32356-a7b0-49a7-b18a-919da0b8e7fb"
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "http://localhost:3000/api/auth/register",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "3000",
+                  "path": [
+                    "api",
+                    "auth",
+                    "register"
+                  ]
+                }
+              },
+              "status": "Conflict",
+              "code": 409,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "90"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"5a-0F0HLMcepALbzREt3KoqZEZONjY\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Mon, 28 Sep 2026 05:56:40 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"error\": {\n        \"message\": \"Username \\\"admin\\\" is already taken\",\n        \"details\": {\n            \"field\": \"username\"\n        }\n    }\n}"
             }
           ]
         },
@@ -812,6 +1352,143 @@
               ],
               "cookie": [],
               "body": "{\n    \"data\": {\n        \"authentication_token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluIiwidHlwIjoiYWNjZXNzIiwiaWF0IjoxNzkwNTczODEzLCJleHAiOjE3OTA1Nzc0MTMsImlzcyI6ImJ0cy5pZCIsInN1YiI6IjEifQ.HN6swJpiXJhpPWMB5LCTruCMh9x4QKKRmrhoU7C153c\",\n        \"refresh_token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0eXAiOiJyZWZyZXNoIiwicHdkIjoidDFydFRULWFuRVFCRE9TalJjTjJHVGk4RHk1X0VNbUIiLCJqdGkiOiI4ZTk3ZDJkYi05NWRkLTQyYTItOWJiMC0wNzI5ZDgzZDMxYTciLCJpYXQiOjE3OTA1NzM4MTMsImV4cCI6MTc5MzE2NTgxMywiaXNzIjoiYnRzLmlkIiwic3ViIjoiMSJ9.Rt9Yl_Do1VEJihQ7GNbZy4GY7BdBauHEdnMUYlecn60\"\n    }\n}"
+            },
+            {
+              "name": "400 Bad Request",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "key": "username",
+                      "value": "admin",
+                      "type": "text",
+                      "uuid": "a316a4da-5e65-4bcb-bdbf-af59f3b4b19f"
+                    },
+                    {
+                      "key": "password",
+                      "value": "password123",
+                      "type": "text",
+                      "uuid": "36d9a355-1e09-4a10-a7e6-d7d44ab996ab",
+                      "disabled": true
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "http://localhost:3000/api/auth/login",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "3000",
+                  "path": [
+                    "api",
+                    "auth",
+                    "login"
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "116"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"74-ewfeVFQA4nsehaiLoeWVYCfF/6Y\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Mon, 28 Sep 2026 05:57:03 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"error\": {\n        \"message\": \"Field \\\"password\\\" is required and must be a non-empty string\",\n        \"details\": {\n            \"field\": \"password\"\n        }\n    }\n}"
+            },
+            {
+              "name": "401 Unauthorized",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "key": "username",
+                      "value": "admin",
+                      "type": "text",
+                      "uuid": "a316a4da-5e65-4bcb-bdbf-af59f3b4b19f"
+                    },
+                    {
+                      "key": "password",
+                      "value": "password1234",
+                      "type": "text",
+                      "uuid": "36d9a355-1e09-4a10-a7e6-d7d44ab996ab"
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "http://localhost:3000/api/auth/login",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "3000",
+                  "path": [
+                    "api",
+                    "auth",
+                    "login"
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "52"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"34-C3eJbGLXCqkfxj/EEQw5HgELugw\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Mon, 28 Sep 2026 05:57:20 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"error\": {\n        \"message\": \"Invalid username or password\"\n    }\n}"
             }
           ]
         }
@@ -821,7 +1498,18 @@
       "name": "/api",
       "request": {
         "method": "GET",
-        "header": []
+        "header": [],
+        "url": {
+          "raw": "http://localhost:3000/api",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "api"
+          ]
+        }
       },
       "response": []
     }
