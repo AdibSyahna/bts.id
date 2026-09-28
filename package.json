@@ -1,0 +1,41 @@
+{
+  "name": "bts.id",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Node.js + TypeScript + Express + SQLite3 REST API starter",
+  "type": "module",
+  "main": "dist/index.js",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "dev": "tsx watch src/index.ts",
+    "build": "tsc -p tsconfig.build.json",
+    "start": "node dist/index.js",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "test": "node --import tsx --test \"src/**/*.test.ts\"",
+    "clean": "node -e \"require('node:fs').rmSync('dist',{recursive:true,force:true})\"",
+    "db:reset": "node -e \"const fs=require('node:fs');fs.mkdirSync('data',{recursive:true});for(const f of fs.readdirSync('data')){if(/\\.db(-wal|-shm|-journal)?$/.test(f)){fs.rmSync('data/'+f,{force:true});}}console.log('local sqlite files removed')\""
+  },
+  "keywords": [
+    "node",
+    "typescript",
+    "express",
+    "sqlite3",
+    "rest-api"
+  ],
+  "license": "MIT",
+  "devDependencies": {
+    "@types/express": "^5.0.6",
+    "@types/node": "^26.6.3",
+    "@types/supertest": "^7.2.1",
+    "supertest": "^7.3.0",
+    "tsx": "^4.23.15",
+    "typescript": "^7.0.2"
+  },
+  "dependencies": {
+    "dotenv": "^18.0.4",
+    "express": "^5.2.1",
+    "sqlite3": "^6.0.1"
+  }
+}
