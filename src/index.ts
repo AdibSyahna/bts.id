@@ -1,11 +1,17 @@
 import type { Server } from "node:http";
 import { createApp } from "./app.js";
-import { env } from "./config/env.js";
+import { assertSafeConfiguration, env } from "./config/env.js";
 import { close, initializeDatabase } from "./db/database.js";
 
 const FORCE_EXIT_MS = 10_000;
 
 async function bootstrap(): Promise<void> {
+  // Refuses to start with development credentials while NODE_ENV=production.
+  assertSafeConfiguration();
+  if (env.usesDevJwtSecret && !env.isTest) {
+    console.warn("[auth] using the built-in development JWT secret - set JWT_SECRET before deploying");
+  }
+
   await initializeDatabase();
   console.log(`[db] sqlite ready at ${env.dbFile}`);
 

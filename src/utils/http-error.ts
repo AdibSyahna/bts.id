@@ -25,4 +25,12 @@ export class HttpError extends Error {
   static conflict(message: string, details?: unknown): HttpError {
     return new HttpError(409, message, details);
   }
+
+  static unauthorized(message: string, details?: unknown): HttpError {
+    return new HttpError(401, message, details);
+  }
+
+  static forbidden(message: string, details?: unknown): HttpError {
+    return new HttpError(403, message, details);
+  }
 }

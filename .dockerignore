@@ -1,0 +1,22 @@
+# Local dependencies are platform specific (Windows sqlite3 binary here) and
+# must never be copied into a Linux image.
+node_modules
+
+# Compiled inside the image by `npm run build`.
+dist
+
+# Local database files must not leak into the image.
+data
+
+# Local secrets/overrides; container config comes from docker-compose.yml.
+.env
+.env.*
+
+# Noise
+*.log
+npm-debug.log*
+.git
+.gitignore
+.vscode
+.idea
+README.md

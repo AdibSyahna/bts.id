@@ -1,0 +1,33 @@
+# Usage:
+#   docker compose up -d --build    # build + start, then open http://localhost:3000/health
+#   docker compose ps               # "api" should report (healthy)
+#   docker compose logs -f api
+#   docker compose exec api npm run db:reset   # wipe the sqlite data
+#   docker compose down             # stop, KEEP the database
+#   docker compose down -v          # WARNING: deletes the sqlite_data volume = the whole database
+#
+# Set APP_PORT in a local .env file to change the published port.
+
+services:
+  api:
+    build: .
+    image: bts.id-api:latest
+    ports:
+      - "${APP_PORT:-3000}:3000"
+    environment:
+      NODE_ENV: production
+      PORT: 3000
+      DB_FILE: data/app.db
+      # The container runs with NODE_ENV=production, so the api refuses to boot
+      # without a real secret: put JWT_SECRET in a local .env file.
+      JWT_SECRET: "${JWT_SECRET:?set JWT_SECRET in a .env file before running docker compose}"
+      JWT_EXPIRES_IN: "${JWT_EXPIRES_IN:-1h}"
+      JWT_REFRESH_EXPIRES_IN: "${JWT_REFRESH_EXPIRES_IN:-30d}"
+    volumes:
+      # Named volume (not a host bind mount): sqlite + WAL needs reliable
+      # POSIX file locking, which Docker Desktop bind mounts do not guarantee.
+      - sqlite_data:/app/data
+    restart: unless-stopped
+
+volumes:
+  sqlite_data:
