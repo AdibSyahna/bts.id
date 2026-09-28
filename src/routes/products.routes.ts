@@ -195,7 +195,7 @@ productsRouter.post(
 // Any authenticated user may change products; the audit columns record who did.
 // To restrict this to the original author, compare currentUser(req).id with the
 // product's createdById and throw HttpError.forbidden(...) when they differ.
-productsRouter.patch(
+productsRouter.put(
   "/:id",
   requireAuth,
   asyncHandler<{ id: string }>(async (req, res) => {
